@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="project" type="com.ryadav3.mvvmsample.service.model.Project"/>
+        <variable name="callback" type="com.ryadav3.mvvmsample.view.callback.ProjectClickCallback"/>
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/item_horizontal_margin"
+        android:layout_marginEnd="@dimen/item_horizontal_margin">
+
+        <LinearLayout
+            android:layout_marginStart="@dimen/item_horizontal_margin"
+            android:layout_marginEnd="@dimen/item_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(theView) -> callback.onClick(theView, project)}"
+            android:padding="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/project_name"
+                android:textStyle="bold"
+                android:textSize="@dimen/project_text"
+                android:text="@{project.name}"/>
+
+            <TextView
+                android:id="@+id/languages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/project_language"
+                android:textSize="@dimen/project_text"
+                android:text="@{String.format(@string/languages, project.language)}"/>
+
+            <TextView
+                android:id="@+id/project_watchers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/project_watchers"
+                android:textSize="@dimen/project_text"
+                android:text="@{String.format(@string/watchers, project.watchers)}"/>
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>
