@@ -5,7 +5,7 @@ import java.util.*
 data class Project(var id: Long = 0,
                    var name: String,
                    var full_name: String? = null,
-                   var owner: User? = null,
+                   var owner: GitHubUser? = null,
                    var html_url: String? = null,
                    var description: String? = null,
                    var url: String? = null,

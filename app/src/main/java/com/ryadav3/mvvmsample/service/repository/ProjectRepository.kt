@@ -42,12 +42,12 @@ class ProjectRepository {
 
         gitHubService?.getProjectList(userId)?.enqueue(object : Callback<List<Project>> {
             override fun onResponse(call: Call<List<Project>>, response: Response<List<Project>>) {
-                data.setValue(response.body())
+                data.value=response.body()
             }
 
             override fun onFailure(call: Call<List<Project>>, t: Throwable) {
                 // TODO better error handling in part #2 ...
-                data.setValue(null)
+                data.value=null
             }
         })
 
@@ -60,12 +60,12 @@ class ProjectRepository {
         gitHubService?.getProjectDetails(userID, projectName)?.enqueue(object : Callback<Project> {
             override fun onResponse(call: Call<Project>, response: Response<Project>) {
                 simulateDelay()
-                data.setValue(response.body())
+                data.value=response.body()
             }
 
             override fun onFailure(call: Call<Project>, t: Throwable) {
                 // TODO better error handling in part #2 ...
-                data.setValue(null)
+                data.value=null
             }
         })
 
